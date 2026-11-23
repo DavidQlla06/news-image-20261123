@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
-"""Entry point for news-image-20261123: draws entry.png via generate.py."""
-import os
+"""Launcher for the Monday 23 November 2026 front page build."""
+
+import pathlib
 import sys
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+HERE = pathlib.Path(__file__).resolve().parent
+if str(HERE) not in sys.path:
+    sys.path.insert(0, str(HERE))
 
-from generate import main
+import generate
+
+
+def run() -> None:
+    generate.main()
+
 
 if __name__ == "__main__":
-    main()
+    run()
